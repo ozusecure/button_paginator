@@ -1,3 +1,6 @@
+# This is custom for exile's repo, view the main one at: https://github.com/cop-discord/button_paginator
+# All files are free to use.
+
 from setuptools import setup, find_packages
 import pathlib
 
