@@ -101,7 +101,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
             if num in range(len(view.embeds)):
                 view.page = num
             else:
-                return await interaction.followup.send(content="Invalid number: aborting", ephemeral=True)
+                return await interaction.followup.send(content="<:warning:1097226043271684266> {interaction.author.mention}: **Invalid** number: aborting", ephemeral=True)
 
             view.update_view()
             await view.edit_embed(interaction)
@@ -110,7 +110,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
             except:
                 pass
         except ValueError:
-            return await interaction.response.send_message(content="That's not a number", ephemeral=True)
+            return await interaction.response.send_message(content="<:warning:1097226043271684266> {interaction.author.mention}: That's **not** a number", ephemeral=True)
 
 class goto_page(discord.ui.Button):
     def __init__(self, label, emoji, style, row):
@@ -243,7 +243,7 @@ class Paginator(discord.ui.View):
             pass
         else:
             if interaction.user.id != self.invoker:
-                return await interaction.response.send_message(ephemeral=True, embed=discord.Embed(description=f"{emoji} {interaction.user.mention}: **Only the author of the command can do this.**", color=int("faa61a", 16)))
+                return await interaction.response.send_message(ephemeral=True, embed=discord.Embed(description=f"{emoji} {interaction.user.mention}: You do not have **permissions** to do this.", color=int("faa61a", 16)))
             else:
                 #await interaction.response.defer()
                 pass
